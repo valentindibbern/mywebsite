@@ -25,6 +25,7 @@
 .header {
     position: fixed;
     top: 0;
+    left: 0; /* Füge left: 0 hinzu */
     width: 100%;
     background-color: var(--card-background);
     padding: 1rem 0;
@@ -61,11 +62,10 @@ a:hover {
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    /* Entferne display: flex und place-items: center */
 }
 
 h1 {
@@ -121,6 +121,7 @@ button:focus-visible {
 }
 
 .hero {
+    padding-top: 80px; /* Anpassen je nach Header-Höhe */
     height: 100vh;
     display: flex;
     align-items: center;
@@ -148,7 +149,11 @@ button:focus-visible {
 }
 
 section {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
     padding: 5rem 2rem;
+    box-sizing: border-box;
 }
 
 .about-content {
@@ -157,6 +162,29 @@ section {
     gap: 2rem;
     max-width: 1280px;
     margin: 0 auto;
+}
+
+.about-text, .skills {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 8px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-text h3, .skills h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .skill-tags {
@@ -261,5 +289,21 @@ textarea {
         --background-color: #ffffff;
         --text-color: #213547;
         --card-background: #f9f9f9;
+    }
+}
+
+main {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Für mobile Ansicht */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-text, .skills {
+        height: auto;
     }
 }
